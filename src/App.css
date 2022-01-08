@@ -1,0 +1,253 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  background: rgba(0, 0, 0, 0.1);
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+input,
+textarea,
+button {
+  border: none;
+}
+input:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+/* flex */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.jc-c {
+  justify-content: center;
+}
+.jc-s {
+  justify-content: flex-start;
+}
+.jc-e {
+  justify-content: flex-end;
+}
+.jc-sb {
+  justify-content: space-between;
+}
+.jc-sa {
+  justify-content: space-around;
+}
+.jc-se {
+  justify-content: space-evenly;
+}
+.ai-c {
+  align-items: center;
+}
+.ai-s {
+  align-items: flex-start;
+}
+.ai-e {
+  align-items: flex-end;
+}
+.flex-full {
+  flex: 1;
+}
+.flex-half {
+  flex: 0.5;
+}
+.flex-quarter {
+  flex: 0.25;
+}
+
+.as-c {
+  align-self: center;
+}
+.as-s {
+  align-self: flex-start;
+}
+.as-e {
+  align-self: flex-end;
+}
+
+/* Customized input */
+
+
+/* Notify Me */
+
+/* Firefox */
+input[type=number] {
+-moz-appearance: textfield;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+.wrapper {
+  padding: 50px;
+}
+
+form {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+form .header {
+  font-size: 30px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+  color: rgb(238, 104, 51);
+}
+
+form .footer {
+  font-size: 15px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  padding-top: 20px;
+  margin-top: 10px;
+  color: rgb(238, 104, 51);
+}
+
+form .btn-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.input-block {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+.input-block .response {
+  color: #d72d2d;
+  margin-top: 5px;
+  font-size: 13px;
+}
+.form-success {    
+  background: rgba(100, 180, 100, 0.6);
+  padding: 10px;
+  border-radius: 5px;
+  color: #dddbdb;
+  font-size: 14px;
+  display: none;
+}
+.form-error {    
+  background: rgba(255, 50, 30, 0.6);
+  padding: 10px;
+  border-radius: 5px;
+  color: #dddbdb;
+  font-size: 14px;
+  display: none;
+}
+.form-success a,
+.form-error a {    
+  color: rgb(109 180 255);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.input-block .response > i {
+  margin-right: 3px;
+}
+
+.input-container-floating {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  flex: 1;
+  margin-left: 10px;
+}
+.input-container-floating:first-child {
+  margin-left: 0;
+}
+
+.input-container-floating label {
+  color: white;
+  margin-bottom: 3px;
+  display: block;
+  font-size: 14px;
+}
+
+.input-container-floating input,
+.input-container-floating textarea {
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.4);
+  height: 50px;
+  padding: 0;
+  height: 40px;
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  z-index: 1;
+  color: rgb(238, 104, 51);
+  font-size: 16px;
+}
+.input-container-floating textarea {
+height: 100%;
+padding: 10px;
+}
+
+.input-container-floating input:focus,
+.input-container-floating textarea:focus {
+  border-color: rgb(238, 104, 51);
+  transition: 300ms;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.4);
+}
+
+
+/* Buttons */
+.btn {
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.btn-primary {
+  background: rgb(238, 104, 51);
+  color: white;
+}
+.btn-secondary {
+  background: rgba(149, 148, 148, 0.7);
+  color: white;
+}
+.btn-large {
+  padding: 20px 30px;
+  font-size: 17px;
+}
+.btn-medium {
+  padding: 8px 13px;
+  font-size: 13px;
+}
+.btn-small {
+  padding: 5px 8px;
+  font-size: 12px;
+}
+
+
+
+@media screen and (max-width: 400px) {
+  .input-block {
+      flex-direction: column;
+  }
+  .input-container-floating {
+      margin-left: 0;
+  }
+}

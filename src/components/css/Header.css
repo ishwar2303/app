@@ -1,0 +1,50 @@
+
+/* header */
+.main-header-padding {
+  height: 60px;
+}
+.main-header {
+  height: 60px;
+  background: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0px 25px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.main-header .logo,
+.main-header .sign-up {
+  width: 250px;
+}
+.main-header .sign-up a:nth-child(2) {
+  margin-left: 10px;
+}
+.main-header .navigation {
+  height: 100%;
+}
+.main-header .navigation a {
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.main-header .navigation a:hover {
+  border-bottom: 3px solid rgb(238, 104, 51);
+  color:rgb(238, 104, 51);
+  transition: 300ms;
+}
+
+.main-header-active-link {
+  border-bottom: 3px solid rgb(238, 104, 51);
+  color:rgb(238, 104, 51);
+}
+.main-header-in-active-link {
+  border-bottom: none;
+  color:white;
+}
