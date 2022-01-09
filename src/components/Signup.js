@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import '../components/css/Signup.css'
 
 function Signup() {
-
+    
     async function postData(url, data) {
         const response = await fetch(url, {
             method: 'POST',
@@ -51,6 +51,7 @@ function Signup() {
             successBlock.style.display = 'block';
             errorBlock.style.display = 'none';
             form.reset();
+            resetResponse();
         }
         else {
             errorBlock.innerHTML = error;
@@ -73,6 +74,13 @@ function Signup() {
     const handleReset = () => {
         let form = document.getElementById('signup-form');
         form.reset();
+    }
+
+    const resetResponse = () => {
+        let form = document.getElementById('add-task-form');
+        let formResponse = form.getElementsByClassName('response');
+        for(let i=0; i<formResponse.length; i++)
+            formResponse[i].style.display = 'none';
     }
 
     return (

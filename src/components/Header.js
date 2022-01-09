@@ -14,6 +14,7 @@ function Header() {
                     <Link to='/services' className='main-header-in-active-link'>Services</Link>
                     <Link to='/products' className='main-header-in-active-link'>Products</Link>
                     <Link to='/contact-us' className='main-header-in-active-link'>Contact Us</Link>
+                    <Link to='/dashboard' className='main-header-in-active-link'>Dashboard</Link>
                 </div>
                 <div className='sign-up flex-row'>
 

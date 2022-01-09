@@ -1,0 +1,76 @@
+
+.customized-radio {
+    display: flex;
+    flex: 1;
+    font-size: 13px;
+    margin: 10px 0px;
+    margin-bottom: 20px;
+  }
+.customized-radio i {
+    margin-right: 5px;
+}
+  .customized-radio  input {
+    display: none;
+  }
+  .customized-radio > label {
+    margin-left: 10px;
+  }
+  
+  .customized-radio > label:nth-child(1) {
+    margin-left: 0;
+  }
+  .customized-radio  input:checked ~ span {
+    background: rgb(238, 104, 51, 0.2);
+    color: rgb(238, 104, 51);
+    box-shadow: 0px 0px 0px 3px rgb(238, 104, 51, 0.3);
+    border-color: rgb(238, 104, 51);
+  }
+  .customized-radio > label {
+    flex: 1;
+  }
+  .customized-radio span {
+    display: block;
+    padding: 10px;
+    color: rgb(177, 177, 177);
+    border: 0.5px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+  
+  }
+  
+  .customized-radio-black {
+    display: flex;
+    flex: 1;
+    font-size: 13px;
+    margin: 10px 0px;
+    margin-bottom: 20px;
+  }
+  .customized-radio-black i {
+      margin-right: 5px;
+  }
+  .customized-radio-black  input {
+    display: none;
+  }
+  .customized-radio-black > label {
+    margin-left: 10px;
+  }
+  
+  .customized-radio-black > label:nth-child(1) {
+    margin-left: 0;
+  }
+  .customized-radio-black  input:checked ~ span {
+    background: rgb(238, 104, 51, 0.2);
+    color: rgb(238, 104, 51);
+    box-shadow: 0px 0px 0px 3px rgb(238, 104, 51, 0.3);
+    border-color: rgb(238, 104, 51);
+  }
+  .customized-radio-black > label {
+    flex: 1;
+  }
+  .customized-radio-black span {
+    display: block;
+    padding: 10px;
+    color: rgb(73, 73, 73);
+    border: 0.5px solid rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+  
+  }

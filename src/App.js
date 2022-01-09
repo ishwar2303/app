@@ -8,6 +8,7 @@ import Banner from './components/Banner';
 import Footer from './components/Footer';
 import Signup from './components/Signup';
 import Services from './components/Services';
+import Dashboard from './components/Dashboard';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/' element={<Banner />}/>
           <Route path='/signup' element={<Signup />}/>
           <Route path='/services' element={<Services />}/>
+          <Route path='/dashboard' element={<Dashboard />}/>
         </Routes>
         <Footer />
       </Router>

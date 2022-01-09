@@ -1,4 +1,8 @@
 .main-footer {
-    background: green;
-    height: 500px;
+    background: rgb(16, 16, 38);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
 }
