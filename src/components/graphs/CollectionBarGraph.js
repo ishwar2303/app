@@ -43,7 +43,7 @@ function CollectionBarGraph() {
         });
 
         let seriesData = {
-            name: 'analystName',
+            name: 'Analyst',
             data: []
         };
 
@@ -93,7 +93,12 @@ function CollectionBarGraph() {
             },
             xAxis: {
                 labels: {
-                    align: 'right'
+                    align: 'left',
+                    x: 3,
+                    y: -15,
+                    style: {
+                        color: 'blue',
+                    }
                 },
                 categories: dataCategories,
                 title: {
@@ -104,14 +109,18 @@ function CollectionBarGraph() {
                 min: 0,
                 title: {
                     text: 'Amount',
-                    align: 'high'
+                    align: 'high',
                 },
                 labels: {
-                    overflow: 'justify'
+                    overflow: 'justify',
+                    rotation: 45
                 }
             },
             tooltip: {
-                valueSuffix: ' millions'
+                formatter: function() {
+                    return '<b>' + this.x + '</b>' + '<br/>' + this.y + ' $';
+                },
+                valueSuffix: ' $'
             },
             plotOptions: {
                 bar: {
