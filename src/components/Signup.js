@@ -29,7 +29,7 @@ function Signup() {
         body.append('password', inputs3[0].value);
         body.append('confirmPassword', inputs3[1].value);
         
-        postData('http://localhost/API/Admin/register.php', body)
+        postData('http://apiforreact-env.eba-umuhetyq.ap-south-1.elasticbeanstalk.com/Admin/register.php', body)
         .then(data => {
               populateResponse(data)
         });
