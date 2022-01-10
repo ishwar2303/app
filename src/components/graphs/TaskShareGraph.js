@@ -46,7 +46,7 @@ function TaskGraph() {
 
     const loadChart = () => {
         
-        var URL = 'http://localhost/API/Admin/fetch-task-performance.php';
+        var URL = 'http://apiforreact-env.eba-umuhetyq.ap-south-1.elasticbeanstalk.com/Admin/fetch-task-performance.php';
 
         getData(URL)
         .then(data => {
