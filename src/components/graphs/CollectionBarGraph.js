@@ -68,7 +68,6 @@ function CollectionBarGraph() {
         .then(data => {
             chartData = data.data;
             data = prepareData(data.data);
-            console.log(data);
             renderChart(data.seriesData, data.categories);
             
         });
@@ -86,7 +85,7 @@ function CollectionBarGraph() {
                 type: 'bar'
             },
             title: {
-                text: 'Top analyst by collection'
+                text: 'Top 5 analyst by collection'
             },
             subtitle: {
                 text: null
@@ -97,7 +96,7 @@ function CollectionBarGraph() {
                     x: 3,
                     y: -15,
                     style: {
-                        color: 'blue',
+                        color: 'rgb(0, 0, 0, 0.8)',
                     }
                 },
                 categories: dataCategories,
@@ -126,6 +125,10 @@ function CollectionBarGraph() {
                 bar: {
                     dataLabels: {
                         enabled: true
+                    },
+                    color: 'rgb(251 129 80)',
+                    style: {
+                        textShadow: false 
                     }
                 }
             },

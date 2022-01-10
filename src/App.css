@@ -251,7 +251,13 @@ select {
   padding: 0px 10px;
 }
 
-
+/* margin */
+.mr-10 {
+  margin-right: 10px;
+}
+.ml-10 {
+  margin-left: 10px;
+}
 @media screen and (max-width: 400px) {
   .input-block {
       flex-direction: column;

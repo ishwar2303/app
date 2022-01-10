@@ -52,22 +52,7 @@ function TaskGraph() {
         .then(data => {
             chartData = data.data;
             data = prepareData(data.data);
-            let analystSelect = document.getElementById('analyst-filter-select');
-            analystSelect.innerHTML = '';
-
-            let option = document.createElement('option');
-            option.innerText = 'Select Analyst Filter';
-            option.value = '';
-            option.selected = true;
-            analystSelect.appendChild(option);
-
-            for(let i=0; i<data.length; i++) {
-                let option = document.createElement('option');
-                option.innerText = data[i].name;
-                option.value = data[i].name;
-                analystSelect.appendChild(option);
-            }
-            document.getElementsByName('status2')[2].checked = true;
+            document.getElementsByName('status1')[2].checked = true;
             renderChart(data);
             
         });
@@ -98,7 +83,7 @@ function TaskGraph() {
                 type: 'pie'
             },
             title: {
-                text: 'Analyst task completion share'
+                text: 'Analyst task share'
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.y} <i class="fas fa-rupee-sign"></i></b>'

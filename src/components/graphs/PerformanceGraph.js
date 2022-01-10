@@ -67,7 +67,7 @@ function PerformanceGraph() {
             analystSelect.innerHTML = '';
 
             let option = document.createElement('option');
-            option.innerText = 'Select Analyst Filter';
+            option.innerText = 'All Analyst';
             option.value = '';
             option.selected = true;
             analystSelect.appendChild(option);
@@ -133,7 +133,12 @@ function PerformanceGraph() {
                 align: 'right',
                 verticalAlign: 'middle'
             },
-        
+            tooltip: {
+                formatter: function() {
+                    return '<b>' + this.x + '</b>' + '<br/>' + this.y + ' $';
+                },
+                valueSuffix: ' $'
+            },
             plotOptions: {
                 series: {
                     label: {
@@ -191,13 +196,12 @@ function PerformanceGraph() {
                         checked={true}
                         onclick={updateChart}
                     />
+                    <div className='flex-row jc-sb ml-10'>
+                        <select id="analyst-filter-select" className='mr-10' onChange={updateChart}>
+                        </select>
+                        <button className='btn btn-primary btn-medium' onClick={loadChart}><i className='fas fa-sync'/> Refresh</button>
+                    </div>
                 </div> 
-            </div>
-            <div className='flex-row jc-sb'>
-                <select id="analyst-filter-select" onChange={updateChart}>
-                    <option disabled>Select Analyst</option>
-                </select>
-                <button className='btn btn-primary btn-medium' onClick={loadChart}><i className='fas fa-sync'/> Refresh</button>
             </div>
             {loadChart()}
         </>

@@ -1,8 +1,12 @@
 .dashboard {
     background: rgba(0, 0, 0, 0.05);
 }
-.graph-container {
+.dashboard > div:nth-child(1) {
     padding: 20px;
+    padding-bottom: 0;
+}
+.graph-container {
+    margin-bottom: 20px;
 }
 .graph-container > div {
     display: flex;
