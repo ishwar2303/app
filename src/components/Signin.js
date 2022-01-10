@@ -1,10 +1,10 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import '../components/css/Signup.css'
+import '../components/css/Signin.css'
 import InputBottomBorder from './utility/InputBottomBorder';
 
-function Signup() {
-    
+function Signin() {
+
     async function postData(url, data) {
         const response = await fetch(url, {
             method: 'POST',
@@ -37,7 +37,7 @@ function Signup() {
     }
 
     const populateResponse = (res) => {
-        let form = document.getElementById('signup-form');
+        let form = document.getElementById('signin-form');
         let successBlock =form.getElementsByClassName('form-success')[0];
         successBlock.style.display = 'none';
         let errorBlock = form.getElementsByClassName('form-error')[0];
@@ -72,7 +72,7 @@ function Signup() {
     }
   
     const handleReset = () => {
-        let form = document.getElementById('signup-form');
+        let form = document.getElementById('signin-form');
         form.reset();
     }
 
@@ -82,38 +82,17 @@ function Signup() {
         for(let i=0; i<formResponse.length; i++)
             formResponse[i].innerText = '';
     }
-
     return (
-        <div className='signup-container flex-row jc-c ai-c'>
-            <form id="signup-form" onSubmit={handleSubmit}>
-                <div className='header'>Admin Registration</div>
+        <div className='signin-container flex-row jc-c ai-c'>
+            <form id="signin-form" onSubmit={handleSubmit}>
+                <div className='header'>Sign In</div>
                 <div className='form-success'></div>
                 <div className='form-error'></div>
-                <div className='input-block'>
-                    <InputBottomBorder 
-                        name='firstName' 
-                        type='text' 
-                        label='First Name'
-                        required={false}
-                    />
-                    <InputBottomBorder 
-                        name='lastName' 
-                        type='text' 
-                        label='Last Name'
-                        required={false}
-                    />
-                </div>
                 <div className='input-block'>
                     <InputBottomBorder 
                         name='email' 
                         type='email' 
                         label='E-mail'
-                        required={false}
-                    />
-                    <InputBottomBorder 
-                        name='contact' 
-                        type='number' 
-                        label='Contact'
                         required={false}
                     />
                 </div>
@@ -124,23 +103,17 @@ function Signup() {
                         label='Password'
                         required={false}
                     />
-                    <InputBottomBorder 
-                        name='confirmPassword' 
-                        type='password' 
-                        label='Confirm Password'
-                        required={false}
-                    />
                 </div>
                 <div className='flex-row jc-sb'>
                     <div onClick={handleReset} className='btn btn-secondary btn-medium'>Reset</div>
-                    <button className='btn btn-primary btn-medium'>Register</button>
+                    <button className='btn btn-primary btn-medium'>Sign in</button>
                 </div>
                 <div className='footer'>
-                    Already have an account? <Link to='/signin'>Signin</Link>
+                    Create an account? <Link to='/signup'>Signup</Link>
                 </div>
             </form>
         </div>
     )
 }
 
-export default Signup
+export default Signin

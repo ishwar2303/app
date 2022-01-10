@@ -1,30 +1,13 @@
 import React from 'react'
 import Highcharts from 'highcharts';
-import Loading from '../Utility/Loading';
-import CustomRadio from '../Utility/CustomRadio';
+import crossfilter from 'crossfilter';
+import Loading from '../utility/Loading';
+import CustomRadio from '../utility/CustomRadio';
+import buttonListener from '../utility-functions/Button';
 
 function TaskGraph() {
 
-    var control = true;
-
-    const setChartOptions = () => {
-        Highcharts.setOptions({
-            colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
-                return {
-                    radialGradient: {
-                        cx: 0.5,
-                        cy: 0.3,
-                        r: 0.7
-                    },
-                    stops: [
-                        [0, color],
-                        [1, Highcharts.color(color).brighten(-0.3).get('rgb')] // darken
-                    ]
-                };
-            })
-        });
-    }
-
+    var chartData = [];
 
     async function getData(url) {
         const response = await fetch(url, {
@@ -33,35 +16,80 @@ function TaskGraph() {
         return response.json(); 
     }
 
-    const loadChart = () => {
-        var URL = 'http://localhost/API/Admin/fetch-task-share.php?status=';
-        let filter = document.getElementsByName('status1');
-        for(let i=0; i<filter.length; i++) {
-            if(filter[i].checked) {
-                URL += filter[i].value;
-                break;
-            }
+    const prepareData = (data, statusFilter = '') => {
+        let cf = crossfilter(data);
+
+        if(statusFilter) {
+            cf.dimension((d) => {return d.status}).filter(statusFilter);
         }
-        console.log(URL)
+
+        let analystDim = cf.dimension((d) => {return d.analyst});
+
+        let series = analystDim.group().reduceSum((d) => {return d.amount}).all();
+
+        // changing format of data to feed highchart
+        let seriesData = [];
+        for(let i=0; i<series.length; i++) {
+            let obj = {
+                name: '',
+                y: 0
+            };
+            obj.name = series[i].key;
+            obj.y = series[i].value;
+            seriesData.push(obj)
+        }
+
+        return [{
+            name: 'Task Share',
+            data: seriesData
+        }]
+    }
+
+    const loadChart = () => {
+        
+        var URL = 'http://localhost/API/Admin/fetch-task-performance.php';
 
         getData(URL)
         .then(data => {
-            console.log(data)
-            renderChart([data.data])
+            chartData = data.data;
+            data = prepareData(data.data);
+            let analystSelect = document.getElementById('analyst-filter-select');
+            analystSelect.innerHTML = '';
+
+            let option = document.createElement('option');
+            option.innerText = 'Select Analyst Filter';
+            option.value = '';
+            option.selected = true;
+            analystSelect.appendChild(option);
+
+            for(let i=0; i<data.length; i++) {
+                let option = document.createElement('option');
+                option.innerText = data[i].name;
+                option.value = data[i].name;
+                analystSelect.appendChild(option);
+            }
+            document.getElementsByName('status2')[2].checked = true;
+            renderChart(data);
+            
         });
     }
 
-
-    window.onload = () => {
-        loadChart()
-    }
     
+    const updateChart = () => {
+        let status = document.getElementsByName('status1');
+        let statusFilter = '';
+        for(let i=0; i<status.length; i++) {
+            if(status[i].checked) { 
+                statusFilter = status[i].value;
+                break;
+            }
+        }
+        let data = prepareData(chartData, statusFilter);
+        renderChart(data);
+    }
+
     const renderChart = (data) => {
 
-        if(control) {
-            setChartOptions();
-            control = false;
-        }
         // Build the chart
         Highcharts.chart('graph-1', {
             chart: {
@@ -105,30 +133,35 @@ function TaskGraph() {
             </div>
             <div className='input-block'>
                 <div className='customized-radio-black'>
-                    <CustomRadio 
+                    
+                <CustomRadio 
                         value='Completed' 
                         text='Completed'
                         name='status1'
                         icon='fas fa-check'
-                        checked={true}
+                        onclick={updateChart}
                     />
                     <CustomRadio 
                         value='Pending' 
                         text='Pending'
                         name='status1'
                         icon='fas fa-box-open'
+                        onclick={updateChart}
                     />
                     <CustomRadio 
-                        value='*' 
+                        value='' 
                         text='Accumulated'
                         name='status1'
                         icon='fas fa-box'
+                        checked={true}
+                        onclick={updateChart}
                     />
                 </div> 
             </div>
             <div className='flex-row jc-e'>
-                <button className='btn btn-primary btn-medium' onClick={loadChart}><i className='fas fa-sync'/> LoadChart</button>
+                <button className='btn btn-primary btn-medium' onClick={loadChart}><i className='fas fa-sync'/> Refresh</button>
             </div>
+            {loadChart()}
         </>
     )
 }

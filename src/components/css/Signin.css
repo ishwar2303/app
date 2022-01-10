@@ -1,0 +1,14 @@
+.signin-container {
+    height: 90vh;
+    background-image: url('../../../public/images/signup.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.signin-container  form {
+    width: 400px;
+    background: rgba(0, 0, 0, 0.85);
+}
+.signin-container a {
+    color: rgb(87, 160, 243);
+}

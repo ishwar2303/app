@@ -1,4 +1,5 @@
 import React from 'react'
+import CustomRadio from '../utility/CustomRadio';
 
 function SaveTask() {
 
@@ -6,7 +7,7 @@ function SaveTask() {
         let form = document.getElementById('add-task-form');
         let formResponse = form.getElementsByClassName('response');
         for(let i=0; i<formResponse.length; i++)
-            formResponse[i].style.display = 'none';
+            formResponse[i].innerText = '';
     }
 
 
@@ -24,7 +25,6 @@ function SaveTask() {
     }
 
     const populateResponse = (res) => {
-        console.log(res)
         let form = document.getElementById('add-task-form');
         let successBlock =form.getElementsByClassName('form-success')[0];
         successBlock.style.display = 'none';
@@ -83,24 +83,24 @@ function SaveTask() {
 
     return (
         <div className='signup-container flex-row jc-c ai-c'>
-            <form id="add-task-form" onSubmit={handleSubmit} e>
+            <form id="add-task-form" onSubmit={handleSubmit}>
                 <div className='header'>Add Task</div>
                 <div className='form-success'></div>
                 <div className='form-error'></div>
                 <div className='input-block'>
-                    <div className='input-container-floating'>
+                    <div className='input-container-bottom-border'>
                         <label>Title</label>
                         <input type="text" name="title" />
                         <div className='response'></div>
                     </div>
-                    <div className='input-container-floating'>
+                    <div className='input-container-bottom-border'>
                         <label>Amount</label>
                         <input type="number" step="0.000001" name="amount" />
                         <div className='response'></div>
                     </div>
                 </div>
                 <div className='input-block'>
-                    <div className='input-container-floating'>
+                    <div className='input-container-bottom-border'>
                         <label>Done by</label>
                         <input type="text" name="analyst" />
                         <div className='response'></div>
@@ -108,14 +108,18 @@ function SaveTask() {
                 </div>
                 <div className='input-block'>
                     <div className='customized-radio'>
-                        <label>
-                            <input type="radio" value="Completed" name="status" />
-                            <span>Completed</span>
-                        </label>
-                        <label>
-                            <input type="radio" value="Pending" name="status" />
-                            <span>Pending</span>
-                        </label>
+                        <CustomRadio 
+                            value='Completed' 
+                            text='Completed'
+                            name='status'
+                            icon='fas fa-box-open'
+                        />
+                        <CustomRadio 
+                            value='Pending' 
+                            text='Pending'
+                            name='status'
+                            icon='fas fa-box'
+                        />
                     </div>
                     <div className='response'></div>
                 </div>

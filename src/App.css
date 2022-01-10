@@ -169,26 +169,26 @@ form .btn-container {
   margin-right: 3px;
 }
 
-.input-container-floating {
+.input-container-bottom-border {
   position: relative;
   margin-top: 10px;
   margin-bottom: 10px;
   flex: 1;
   margin-left: 10px;
 }
-.input-container-floating:first-child {
+.input-container-bottom-border:first-child {
   margin-left: 0;
 }
 
-.input-container-floating label {
+.input-container-bottom-border label {
   color: white;
   margin-bottom: 3px;
   display: block;
   font-size: 14px;
 }
 
-.input-container-floating input,
-.input-container-floating textarea {
+.input-container-bottom-border input,
+.input-container-bottom-border textarea {
   border-bottom: 0.5px solid rgba(255, 255, 255, 0.4);
   height: 50px;
   padding: 0;
@@ -200,13 +200,13 @@ form .btn-container {
   color: rgb(238, 104, 51);
   font-size: 16px;
 }
-.input-container-floating textarea {
+.input-container-bottom-border textarea {
 height: 100%;
 padding: 10px;
 }
 
-.input-container-floating input:focus,
-.input-container-floating textarea:focus {
+.input-container-bottom-border input:focus,
+.input-container-bottom-border textarea:focus {
   border-color: rgb(238, 104, 51);
   transition: 300ms;
   border-bottom: 0.5px solid rgba(255, 255, 255, 0.4);
@@ -245,13 +245,18 @@ padding: 10px;
   font-size: 12px;
 }
 
+select {
+  border: 0.5px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 0px 10px;
+}
 
 
 @media screen and (max-width: 400px) {
   .input-block {
       flex-direction: column;
   }
-  .input-container-floating {
+  .input-container-bottom-border {
       margin-left: 0;
   }
 }
