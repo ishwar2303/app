@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Highcharts from 'highcharts';
 import crossfilter from 'crossfilter';
 import Loading from '../utility/Loading';
