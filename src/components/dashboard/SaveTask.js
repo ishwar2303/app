@@ -73,7 +73,7 @@ function SaveTask() {
         body.append('status', status);
 
         
-        postData('http://localhost/API/Admin/add-task.php', body)
+        postData('http://apiforreact-env.eba-umuhetyq.ap-south-1.elasticbeanstalk.com/Admin/add-task.php', body)
         .then(data => {
              populateResponse(data);
         });

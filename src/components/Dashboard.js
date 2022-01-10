@@ -4,6 +4,7 @@ import TaskGraph from './graphs/TaskShareGraph'
 import PerformanceGraph from './graphs/PerformanceGraph'
 
 import './css/Dashboard.css'
+import CollectionBarGraph from './graphs/CollectionBarGraph'
 
 function Dashboard() {
 
@@ -15,6 +16,13 @@ function Dashboard() {
                 </div>
                 <div className='flex-full'>
                     <PerformanceGraph />
+                </div>
+            </div>
+            <div className='graph-container flex-row'>
+                <div className='flex-col flex-full'>
+                    <CollectionBarGraph />
+                </div>
+                <div className='flex-full'>
                 </div>
             </div>
             <div>
