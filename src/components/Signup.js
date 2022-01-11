@@ -84,62 +84,64 @@ function Signup() {
     }
 
     return (
-        <div className='signup-container flex-row jc-c ai-c'>
-            <form id="signup-form" onSubmit={handleSubmit}>
-                <div className='header'>Admin Registration</div>
-                <div className='form-success'></div>
-                <div className='form-error'></div>
-                <div className='input-block'>
-                    <InputBottomBorder 
-                        name='firstName' 
-                        type='text' 
-                        label='First Name'
-                        required={false}
-                    />
-                    <InputBottomBorder 
-                        name='lastName' 
-                        type='text' 
-                        label='Last Name'
-                        required={false}
-                    />
-                </div>
-                <div className='input-block'>
-                    <InputBottomBorder 
-                        name='email' 
-                        type='email' 
-                        label='E-mail'
-                        required={false}
-                    />
-                    <InputBottomBorder 
-                        name='contact' 
-                        type='number' 
-                        label='Contact'
-                        required={false}
-                    />
-                </div>
-                <div className='input-block'>
-                    <InputBottomBorder 
-                        name='password' 
-                        type='password' 
-                        label='Password'
-                        required={false}
-                    />
-                    <InputBottomBorder 
-                        name='confirmPassword' 
-                        type='password' 
-                        label='Confirm Password'
-                        required={false}
-                    />
-                </div>
-                <div className='flex-row jc-sb'>
-                    <div onClick={handleReset} className='btn btn-secondary btn-medium'>Reset</div>
-                    <button className='btn btn-primary btn-medium'>Register</button>
-                </div>
-                <div className='footer'>
-                    Already have an account? <Link to='/signin'>Signin</Link>
-                </div>
-            </form>
-        </div>
+        <>
+            <div className='signup-container flex-row jc-c ai-c'>
+                <form id="signup-form" onSubmit={handleSubmit}>
+                    <div className='header'>Admin Registration</div>
+                    <div className='form-success'></div>
+                    <div className='form-error'></div>
+                    <div className='input-block'>
+                        <InputBottomBorder 
+                            name='firstName' 
+                            type='text' 
+                            label='First Name'
+                            required={false}
+                        />
+                        <InputBottomBorder 
+                            name='lastName' 
+                            type='text' 
+                            label='Last Name'
+                            required={false}
+                        />
+                    </div>
+                    <div className='input-block'>
+                        <InputBottomBorder 
+                            name='email' 
+                            type='email' 
+                            label='E-mail'
+                            required={false}
+                        />
+                        <InputBottomBorder 
+                            name='contact' 
+                            type='number' 
+                            label='Contact'
+                            required={false}
+                        />
+                    </div>
+                    <div className='input-block'>
+                        <InputBottomBorder 
+                            name='password' 
+                            type='password' 
+                            label='Password'
+                            required={false}
+                        />
+                        <InputBottomBorder 
+                            name='confirmPassword' 
+                            type='password' 
+                            label='Confirm Password'
+                            required={false}
+                        />
+                    </div>
+                    <div className='flex-row jc-sb'>
+                        <div onClick={handleReset} className='btn btn-secondary btn-medium'>Reset</div>
+                        <button className='btn btn-primary btn-medium'>Register</button>
+                    </div>
+                    <div className='footer'>
+                        Already have an account? <Link to='/signin'>Signin</Link>
+                    </div>
+                </form>
+            </div>
+        </>
     )
 }
 

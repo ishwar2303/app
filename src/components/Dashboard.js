@@ -7,28 +7,33 @@ import './css/Dashboard.css'
 import CollectionBarGraph from './graphs/CollectionBarGraph'
 
 function Dashboard() {
-
+    const updateTitle = () => {
+        document.title = 'Dashboard'
+    }
     return (
-        <div className='dashboard'>
-            <div className='flex-col'>
-                <div className='graph-container flex-row'>
-                    <div className='flex-col flex-full'>
-                        <TaskGraph />
+        <>
+            {updateTitle()}
+            <div className='dashboard'>
+                <div className='flex-col'>
+                    <div className='graph-container flex-row'>
+                        <div className='flex-col flex-full'>
+                            <TaskGraph />
+                        </div>
+                        <div className='flex-col flex-full'>
+                            <CollectionBarGraph />
+                        </div>
                     </div>
-                    <div className='flex-col flex-full'>
-                        <CollectionBarGraph />
+                    <div className='graph-container flex-row'>
+                        <div className='flex-full'>
+                            <PerformanceGraph />
+                        </div>
                     </div>
                 </div>
-                <div className='graph-container flex-row'>
-                    <div className='flex-full'>
-                        <PerformanceGraph />
-                    </div>
+                <div>
+                    <SaveTask />
                 </div>
             </div>
-            <div>
-                <SaveTask />
-            </div>
-        </div>
+        </>
     )
 }
 
